@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "SSS (Smart Subtitle System)",
+  "version": "1.0",
+  "description": "YouTube 동영상 재생 시 자막을 자동으로 생성하여 표시합니다.",
+  "permissions": ["activeTab", "storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "host_permissions": [
+    "http://223.130.143.92/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["index.html", "icons/제목 없음.png"], 
+      "matches": ["*://*.youtube.com/*"]
+    }
+  ],
+  "icons": {
+    "16": "icons/빨간S.png"
+  }
+}
